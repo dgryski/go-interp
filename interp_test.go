@@ -97,7 +97,9 @@ func TestSearchSmall(t *testing.T) {
 func TestSearchBig(t *testing.T) {
 
 	if testing.Short() {
-		t.Skip("Skipping big test search")
+		// avoid t.Skip() for tinygo
+		t.Log("Skipping big test search")
+		return
 	}
 
 	rand.Seed(0)
